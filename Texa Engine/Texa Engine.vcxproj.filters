@@ -18,9 +18,15 @@
     <ClCompile Include="Texa Engine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="texaRoom.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="texaLog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="texaRoom.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

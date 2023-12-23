@@ -78,6 +78,8 @@ namespace Texa {
 				printStdError(s);
 			}
 		};
+
+		static TexaLog TexaLogObject;
 		
 	}
 }
