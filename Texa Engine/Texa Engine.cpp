@@ -2,10 +2,16 @@
 //
 
 #include <iostream>
+#include "texaLog.h"
 
+using namespace std;
 int main()
 {
-    std::cout << "Hello World!\n";
+    Texa::Logging::TexaLog log;
+    log.initDefault();
+    log << "Testing TexaLog";
+    log >> "Testing TexaError";
+    return 0;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
