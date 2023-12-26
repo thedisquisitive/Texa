@@ -15,17 +15,17 @@ namespace Texa {
 	namespace World {
 		class texaMap {
 			string mapFile, mapName, mapAuthor, mapDescription, startRoom;
-			vector<Room*> rooms;
+			vector<texaRoom*> rooms;
 			public:
 				texaMap(string mapFile);
 				~texaMap();
 				void loadMap();
 				//void saveMap();
-				void addRoom(Room* room);
-				void removeRoom(Room* room);
-				Room* getRoom(string id);
-				Room* getRoom(int index);
-				Room* getStartRoom();
+				void addRoom(texaRoom* room);
+				void removeRoom(texaRoom* room);
+				texaRoom* getRoom(string id);
+				texaRoom* getRoom(int index);
+				texaRoom* getStartRoom();
 				int getRoomCount();
 		};
 	}

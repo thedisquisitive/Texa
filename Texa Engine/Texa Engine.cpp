@@ -16,7 +16,7 @@ int main()
     
     texaMap* map = new texaMap("testmap.txt");
     map->loadMap();
-    Room* room = map->getStartRoom();
+    texaRoom* room = map->getStartRoom();
 
     cout << "\n~~~~~~~~~~~~~\n";
 

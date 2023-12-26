@@ -59,7 +59,7 @@ namespace Texa {
 					}
 				}
 				else if (command == "ROOM") { // Create a room
-					Room* room = new Room("", "", "", "");
+					texaRoom* room = new texaRoom("", "", "", "");
 					room->load(fin);
 					addRoom(room);
 					TexaLogObject << "Loaded room " + room->getId();
@@ -133,11 +133,11 @@ namespace Texa {
 			}
 		}
 
-		void texaMap::addRoom(Room* room) {
+		void texaMap::addRoom(texaRoom* room) {
 			rooms.push_back(room);
 		}
 
-		void texaMap::removeRoom(Room* room) {
+		void texaMap::removeRoom(texaRoom* room) {
 			for (int i = 0; i < rooms.size(); i++) {
 				if (rooms[i] == room) {
 					rooms.erase(rooms.begin() + i);
@@ -146,7 +146,7 @@ namespace Texa {
 			}
 		}
 
-		Room* texaMap::getRoom(string id) {
+		texaRoom* texaMap::getRoom(string id) {
 			for (int i = 0; i < rooms.size(); i++) {
 				if (rooms[i]->getId() == id) {
 					return rooms[i];
@@ -155,7 +155,7 @@ namespace Texa {
 			return NULL;
 		}
 
-		Room* texaMap::getRoom(int index) {
+		texaRoom* texaMap::getRoom(int index) {
 			return rooms[index];
 		}
 
@@ -163,7 +163,7 @@ namespace Texa {
 			return rooms.size();
 		}
 
-		Room* texaMap::getStartRoom() {
+		texaRoom* texaMap::getStartRoom() {
 			return getRoom(startRoom);
 		}
 	}

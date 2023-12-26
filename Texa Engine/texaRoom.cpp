@@ -14,7 +14,7 @@ using namespace Texa::Logging;
 
 namespace Texa {
 	namespace World {
-		Room::Room(string id, string title, string shortDescription, string longDescription) {
+		texaRoom::texaRoom(string id, string title, string shortDescription, string longDescription) {
 			TexaLogObject << "Creating room " + id;
 			this->id = id;
 			this->title = title;
@@ -22,130 +22,130 @@ namespace Texa {
 			this->longDescription = longDescription;
 		}
 
-		Room::~Room() {
+		texaRoom::~texaRoom() {
 			TexaLogObject << "Destroying room " + id;
 		}
 
-		string Room::getId() {
+		string texaRoom::getId() {
 			return id;
 		}
 
-		string Room::getTitle() {
+		string texaRoom::getTitle() {
 			return title;
 		}
 
-		string Room::getShortDescription() {
+		string texaRoom::getShortDescription() {
 			return shortDescription;
 		}
 
-		string Room::getLongDescription() {
+		string texaRoom::getLongDescription() {
 			return longDescription;
 		}
 
-		void Room::setNorth(Room* room) {
+		void texaRoom::setNorth(texaRoom* room) {
 			north = room;
 		}
 
-		void Room::setSouth(Room* room) {
+		void texaRoom::setSouth(texaRoom* room) {
 			south = room;
 		}
 
-		void Room::setEast(Room* room) {
+		void texaRoom::setEast(texaRoom* room) {
 			east = room;
 		}
 
-		void Room::setWest(Room* room) {
+		void texaRoom::setWest(texaRoom* room) {
 			west = room;
 		}
 
-		void Room::setUp(Room* room) {
+		void texaRoom::setUp(texaRoom* room) {
 			up = room;
 		}
 
-		void Room::setDown(Room* room) {
+		void texaRoom::setDown(texaRoom* room) {
 			down = room;
 		}
 
-		void Room::setIn(Room* room) {
+		void texaRoom::setIn(texaRoom* room) {
 			in = room;
 		}
 
-		void Room::setOut(Room* room) {
+		void texaRoom::setOut(texaRoom* room) {
 			out = room;
 		}
 
-		void Room::setNortheast(Room* room) {
+		void texaRoom::setNortheast(texaRoom* room) {
 			northeast = room;
 		}
 
-		void Room::setNorthwest(Room* room) {
+		void texaRoom::setNorthwest(texaRoom* room) {
 			northwest = room;
 		}
 
-		void Room::setSoutheast(Room* room) {
+		void texaRoom::setSoutheast(texaRoom* room) {
 			southeast = room;
 		}
 
-		void Room::setSouthwest(Room* room) {
+		void texaRoom::setSouthwest(texaRoom* room) {
 			southwest = room;
 		}
 
-		Room* Room::getNorth() {
+		texaRoom* texaRoom::getNorth() {
 			return north;
 		}
 
-		Room* Room::getSouth() {
+		texaRoom* texaRoom::getSouth() {
 			return south;
 		}
 
-		Room* Room::getEast() {
+		texaRoom* texaRoom::getEast() {
 			return east;
 		}
 
-		Room* Room::getWest() {
+		texaRoom* texaRoom::getWest() {
 			return west;
 		}
 
-		Room* Room::getUp() {
+		texaRoom* texaRoom::getUp() {
 			return up;
 		}
 
-		Room* Room::getDown() {
+		texaRoom* texaRoom::getDown() {
 			return down;
 		}
 
-		Room* Room::getIn() {
+		texaRoom* texaRoom::getIn() {
 			return in;
 		}
 
-		Room* Room::getOut() {
+		texaRoom* texaRoom::getOut() {
 			return out;
 		}
 
-		Room* Room::getNortheast() {
+		texaRoom* texaRoom::getNortheast() {
 			return northeast;
 		}
 
-		Room* Room::getNorthwest() {
+		texaRoom* texaRoom::getNorthwest() {
 			return northwest;
 		}
 
-		Room* Room::getSoutheast() {
+		texaRoom* texaRoom::getSoutheast() {
 			return southeast;
 		}
 
-		Room* Room::getSouthwest() {
+		texaRoom* texaRoom::getSouthwest() {
 			return southwest;
 		}
 
-		void Room::save(ofstream& file) {
+		void texaRoom::save(ofstream& file) {
 			file << id << endl;
 			file << title << endl;
 			file << shortDescription << endl;
 			file << longDescription << endl;
 		}
 
-		void Room::load(ifstream& file) {
+		void texaRoom::load(ifstream& file) {
 			string tmp;
 			//file >> tmp;
 			int loading = 1;
