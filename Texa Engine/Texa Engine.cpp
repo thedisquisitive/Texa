@@ -5,10 +5,12 @@
 #include "texaLog.h"
 #include "texaRoom.h"
 #include "texaMap.h"
+#include "texaCreature.h"
 
 using namespace std;
 using namespace Texa::World;
-using Texa::Logging::TexaLogObject;
+using namespace Texa::Entity;
+using namespace Texa::Logging;
 
 int main()
 {
@@ -16,26 +18,58 @@ int main()
     
     texaMap* map = new texaMap("testmap.txt");
     map->loadMap();
-    texaRoom* room = map->getStartRoom();
+    
+    texaCreature *player = new texaCreature("player", "Player", 100, 100, 100, 100, 10, 10, 10, 10, 10, 10, 10, map->getStartRoom());
 
-    cout << "\n~~~~~~~~~~~~~\n";
+    int running = 1;
+    while (running) {
+        string input;
+        cout << player->getLocation()->getTitle() << endl;
+        cout << player->getLocation()->getLongDescription() << endl;
+        cout << "\n> ";
 
-    cout << room->getTitle() << endl;
-    cout << room->getShortDescription() << endl;
+        cin >> input;
+        if (input == "n") {
+            player->moveNorth();
+        }
+        else if (input == "s") {
+			player->moveSouth();
+		}
+        else if (input == "e") {
+			player->moveEast();
+		}
+        else if (input == "w") {
+			player->moveWest();
+		}
+        else if (input == "u") {
+			player->moveUp();
+		}
+        else if (input == "d") {
+			player->moveDown();
+		}
+        else if (input == "in") {
+			player->moveIn();
+		}
+        else if (input == "out") {
+			player->moveOut();
+		}
+        else if (input == "ne") {
+			player->moveNorthEast();
+		}
+        else if (input == "nw") {
+			player->moveNorthWest();
+		}
+        else if (input == "se") {
+			player->moveSouthEast();
+		}
+        else if (input == "sw") {
+			player->moveSouthWest();
+		}
+        else if (input == "quit") {
+			running = 0;
+        }
+    }
 
-    cout << "\n~~~~Going north...\n" << endl;
-
-    room = room->getNorth();
-
-    cout << room->getTitle() << endl;
-    cout << room->getShortDescription() << endl;
-
-    cout << "\n~~~~Going south...\n" << endl;
-
-    room = room->getSouth();
-
-    cout << room->getTitle() << endl;
-    cout << room->getShortDescription() << endl;
     return 0;
 }
 

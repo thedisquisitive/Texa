@@ -24,6 +24,9 @@
     <ClCompile Include="texaMap.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="texaCreature.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="texaLog.h">
@@ -33,6 +36,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="texaMap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="texaCreature.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
