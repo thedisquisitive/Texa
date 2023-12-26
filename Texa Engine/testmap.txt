@@ -1,0 +1,28 @@
+SET MAP_NAME "Test Map"
+SET MAP_AUTHOR "Prof"
+SET MAP_DESCRIPTION "This is a test map."
+
+ROOM
+	SET ROOM_TITLE "Empty Room"
+	SET ROOM_SHORT_DESCRIPTION "This is an empty room."
+	SET ROOM_LONG_DESCRIPTION "This is an empty room. There is nothing here."
+	SET ROOM_ID "Empty1"
+END_ROOM
+
+ROOM
+	SET ROOM_TITLE "Another Empty Room"
+	SET ROOM_SHORT_DESCRIPTION
+		"This is another empty room."
+	SET ROOM_LONG_DESCRIPTION
+		"This is another empty room. There is, again, nothing here."
+	SET ROOM_ID "Empty2"
+END_ROOM
+
+LINK "Empty1" "Empty2" "NORTH"
+
+SET START_ROOM "Empty1"
+
+END_MAP
+```
+
+

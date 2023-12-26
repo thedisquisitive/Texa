@@ -147,36 +147,45 @@ namespace Texa {
 
 		void Room::load(ifstream& file) {
 			string tmp;
-			file >> tmp;
-			if (tmp == "END_ROOM")
-			{
-				TexaLogObject << "Finished loading room " + id;
-				return;
-			}
-			else if (tmp == "SET") {
-				file >> tmp;
-				if (tmp == "ROOM_TITLE") {
-					getline(file, tmp, '\"');
-					getline(file, title, '\"');
-					TexaLogObject << "\tRoom title: " + title;
+			//file >> tmp;
+			int loading = 1;
+			while (loading) {
+				file >> tmp; 
+				TexaLogObject << "\tRoom Load tmp: " + tmp;
+
+				if (tmp == "END_ROOM")
+				{
+					TexaLogObject << "Finished loading room " + id;
+					loading = 0;
+					return;
 				}
-				else if (tmp == "ROOM_SHORT_DESCRIPTION") {
-					getline(file, tmp, '\"');
-					getline(file, shortDescription, '\"');
-					TexaLogObject << "\tRoom short description: " + shortDescription;
-				}
-				else if (tmp == "ROOM_LONG_DESCRIPTION") {
-					getline(file, tmp, '\"');
-					getline(file, longDescription, '\"');
-					TexaLogObject << "\tRoom long description: " + longDescription;
-				}
-				else if (tmp == "ROOM_ID") {
-					getline(file, tmp, '\"');
-					getline(file, id, '\"');
-					TexaLogObject << "\tRoom ID: " + id;
-				}
-				else {
-					TexaLogObject << "Unknown room property " + tmp;
+				else if (tmp == "SET") {
+					string tmp2;
+					file >> tmp2;
+					TexaLogObject << "\t\tRoom Load tmp2: " + tmp2;
+					if (tmp2 == "ROOM_TITLE") {
+						getline(file, tmp2, '\"');
+						getline(file, title, '\"');
+						TexaLogObject << "\t\tRoom title: " + title;
+					}
+					else if (tmp2 == "ROOM_SHORT_DESCRIPTION") {
+						getline(file, tmp2, '\"');
+						getline(file, shortDescription, '\"');
+						TexaLogObject << "\t\tRoom short description: " + shortDescription;
+					}
+					else if (tmp2 == "ROOM_LONG_DESCRIPTION") {
+						getline(file, tmp2, '\"');
+						getline(file, longDescription, '\"');
+						TexaLogObject << "\t\tRoom long description: " + longDescription;
+					}
+					else if (tmp2 == "ROOM_ID") {
+						getline(file, tmp2, '\"');
+						getline(file, id, '\"');
+						TexaLogObject << "\t\tRoom ID: " + id;
+					}
+					else {
+						TexaLogObject << "\t\tUnknown room property " + tmp2;
+					}
 				}
 			}
 		}

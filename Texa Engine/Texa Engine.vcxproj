@@ -136,6 +136,9 @@
     <ClInclude Include="texaMap.h" />
     <ClInclude Include="texaRoom.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="testmap.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

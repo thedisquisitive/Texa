@@ -19,13 +19,16 @@ namespace Texa {
 				return;
 			}
 			string command;
-			while (fin >> command) {
+			int loading = 1;
+			while (loading) {
+				fin >> command;
 				if (command[0] == '#') { // Commented line
 					getline(fin, command, '\n');
 					continue;
 				}
 				if (command == "END_MAP") { // Stop loading map
 					TexaLogObject << "Finished loading map " + mapFile;
+					loading = 0;
 					break;
 				}
 				else if (command == "SET") { // Set map properties
@@ -69,6 +72,8 @@ namespace Texa {
 					getline(fin, room2, '\"');
 					getline(fin, tmp, '\"');
 					getline(fin, direction, '\"');
+
+					TexaLogObject << "Linking room " + room2 + " to room " + room1 + " in direction " + direction;
 
 					if (direction == "NORTH") {
 						getRoom(room1)->setNorth(getRoom(room2));

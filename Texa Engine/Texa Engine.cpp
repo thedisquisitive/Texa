@@ -13,22 +13,29 @@ using Texa::Logging::TexaLogObject;
 int main()
 {
     TexaLogObject.initDefault();
-    TexaLogObject << "Initiated TexaLogObject";
-    Room *room = new Room("ROOM1", "Generic Room", "Thy trusty generic room.", "A rather generic room. Even by generic room standards, this is generic.");
-    Room *room2 = new Room("ROOM2", "Generic Room 2", "Thy trusty generic room. Part deux.", "A rather generic room. Part deux.\nEven compared to the first room, this is generic.");
-    room->setNorth(room2);
+    
+    texaMap* map = new texaMap("testmap.txt");
+    map->loadMap();
+    Room* room = map->getStartRoom();
 
-    Room *current_room = room;
-    TexaLogObject << "Current room: " + current_room->getTitle();
-    TexaLogObject << "Current room description: " + current_room->getShortDescription();
-	TexaLogObject << "Current room long description: " + current_room->getLongDescription();
-    TexaLogObject << "\n\nGoing north...\n\n";
-    current_room = current_room->getNorth();
-    TexaLogObject << "Current room: " + current_room->getTitle();
-    TexaLogObject << "Current room description: " + current_room->getShortDescription();
-    TexaLogObject << "Current room long description: " + current_room->getLongDescription();
+    cout << "\n~~~~~~~~~~~~~\n";
 
-    delete room, room2;
+    cout << room->getTitle() << endl;
+    cout << room->getShortDescription() << endl;
+
+    cout << "\n~~~~Going north...\n" << endl;
+
+    room = room->getNorth();
+
+    cout << room->getTitle() << endl;
+    cout << room->getShortDescription() << endl;
+
+    cout << "\n~~~~Going south...\n" << endl;
+
+    room = room->getSouth();
+
+    cout << room->getTitle() << endl;
+    cout << room->getShortDescription() << endl;
     return 0;
 }
 
