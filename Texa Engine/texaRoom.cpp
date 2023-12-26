@@ -146,10 +146,39 @@ namespace Texa {
 		}
 
 		void Room::load(ifstream& file) {
-			getline(file, id);
-			getline(file, title);
-			getline(file, shortDescription);
-			getline(file, longDescription);
+			string tmp;
+			file >> tmp;
+			if (tmp == "END_ROOM")
+			{
+				TexaLogObject << "Finished loading room " + id;
+				return;
+			}
+			else if (tmp == "SET") {
+				file >> tmp;
+				if (tmp == "ROOM_TITLE") {
+					getline(file, tmp, '\"');
+					getline(file, title, '\"');
+					TexaLogObject << "\tRoom title: " + title;
+				}
+				else if (tmp == "ROOM_SHORT_DESCRIPTION") {
+					getline(file, tmp, '\"');
+					getline(file, shortDescription, '\"');
+					TexaLogObject << "\tRoom short description: " + shortDescription;
+				}
+				else if (tmp == "ROOM_LONG_DESCRIPTION") {
+					getline(file, tmp, '\"');
+					getline(file, longDescription, '\"');
+					TexaLogObject << "\tRoom long description: " + longDescription;
+				}
+				else if (tmp == "ROOM_ID") {
+					getline(file, tmp, '\"');
+					getline(file, id, '\"');
+					TexaLogObject << "\tRoom ID: " + id;
+				}
+				else {
+					TexaLogObject << "Unknown room property " + tmp;
+				}
+			}
 		}
 
 	}

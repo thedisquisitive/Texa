@@ -128,10 +128,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Texa Engine.cpp" />
+    <ClCompile Include="texaMap.cpp" />
     <ClCompile Include="texaRoom.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="texaLog.h" />
+    <ClInclude Include="texaMap.h" />
     <ClInclude Include="texaRoom.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

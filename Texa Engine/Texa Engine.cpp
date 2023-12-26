@@ -4,6 +4,7 @@
 #include <iostream>
 #include "texaLog.h"
 #include "texaRoom.h"
+#include "texaMap.h"
 
 using namespace std;
 using namespace Texa::World;
