@@ -1,26 +1,98 @@
+# Set map properties
 SET MAP_NAME "Test Map"
 SET MAP_AUTHOR "Prof"
 SET MAP_DESCRIPTION "This is a test map."
 
+# Create rooms
 ROOM
-	SET ROOM_TITLE "Empty Room"
-	SET ROOM_SHORT_DESCRIPTION "This is an empty room."
-	SET ROOM_LONG_DESCRIPTION "This is an empty room. There is nothing here."
-	SET ROOM_ID "Empty1"
+	SET ROOM_TITLE "Foyer"
+	SET ROOM_SHORT_DESCRIPTION "You are in the foyer.";
+	SET ROOM_LONG_DESCRIPTION 
+	"You are in the foyer.
+	The hall continues north.
+	The door heading south into the yard invites you to exit.";
+	SET ROOM_ID "FOYER"
 END_ROOM
 
 ROOM
-	SET ROOM_TITLE "Another Empty Room"
-	SET ROOM_SHORT_DESCRIPTION
-		"This is another empty room."
-	SET ROOM_LONG_DESCRIPTION
-		"This is another empty room. There is, again, nothing here."
-	SET ROOM_ID "Empty2"
+	SET ROOM_TITLE "Hall"
+	SET ROOM_SHORT_DESCRIPTION "You are in the hall.";
+	SET ROOM_LONG_DESCRIPTION 
+	"You are in the hall.
+	The foyer is to the south.
+	The kitchen is to the north.";
+	SET ROOM_ID "HALL"
 END_ROOM
 
-LINK "Empty1" "Empty2" "NORTH"
+ROOM
+	SET ROOM_TITLE "Kitchen"
+	SET ROOM_SHORT_DESCRIPTION "You are in the kitchen.";
+	SET ROOM_LONG_DESCRIPTION 
+	"You are in the kitchen.
+	The hall is to the south.
+	The dining room is to the north.";
+	SET ROOM_ID "KITCHEN"
+END_ROOM
 
-SET START_ROOM "Empty1"
+ROOM
+	SET ROOM_TITLE "Dining Room"
+	SET ROOM_SHORT_DESCRIPTION "You are in the dining room.";
+	SET ROOM_LONG_DESCRIPTION 
+	"You are in the dining room.
+	The kitchen is to the south.
+	The living room is to the north.";
+	SET ROOM_ID "DINING_ROOM"
+END_ROOM
+
+ROOM
+	SET ROOM_TITLE "Living Room"
+	SET ROOM_SHORT_DESCRIPTION "You are in the living room.";
+	SET ROOM_LONG_DESCRIPTION 
+	"You are in the living room.
+	The dining room is to the south.
+	The bedroom is to the north.";
+	SET ROOM_ID "LIVING_ROOM"
+END_ROOM
+
+ROOM
+	SET ROOM_TITLE "Bedroom"
+	SET ROOM_SHORT_DESCRIPTION "You are in the bedroom.";
+	SET ROOM_LONG_DESCRIPTION 
+	"You are in the bedroom.
+	The living room is to the south.
+	The bathroom is to the north.";
+	SET ROOM_ID "BEDROOM"
+END_ROOM
+
+ROOM
+	SET ROOM_TITLE "Bathroom"
+	SET ROOM_SHORT_DESCRIPTION "You are in the bathroom.";
+	SET ROOM_LONG_DESCRIPTION 
+	"You are in the bathroom.
+	The bedroom is to the south.";
+	SET ROOM_ID "BATHROOM"
+END_ROOM
+
+ROOM
+	SET ROOM_TITLE "Yard"
+	SET ROOM_SHORT_DESCRIPTION "You are in the yard.";
+	SET ROOM_LONG_DESCRIPTION 
+	"You are in the yard.
+	The foyer is to the north.";
+	SET ROOM_ID "YARD"
+END_ROOM
+
+LINK "FOYER" "HALL" "NORTH"
+LINK "HALL" "KITCHEN" "NORTH"
+LINK "KITCHEN" "DINING_ROOM" "NORTH"
+LINK "DINING_ROOM" "LIVING_ROOM" "NORTH"
+LINK "LIVING_ROOM" "BEDROOM" "NORTH"
+LINK "BEDROOM" "BATHROOM" "NORTH"
+LINK_NON_EUCLIDEAN "FOYER" "FOYER" "SOUTH"
+LINK_NON_EUCLIDEAN "YARD" "FOYER" "NORTH"
+
+
+SET START_ROOM "YARD"
 
 END_MAP
 ```

@@ -127,10 +127,65 @@ namespace Texa {
 						TexaLogObject << "Unknown direction " + direction;
 					}
 				}
+
+				else if (command == "LINK_NON_EUCLIDEAN") { // Link rooms
+					string room1, room2, direction, tmp;
+					getline(fin, tmp, '\"');
+					getline(fin, room1, '\"');
+					getline(fin, tmp, '\"');
+					getline(fin, room2, '\"');
+					getline(fin, tmp, '\"');
+					getline(fin, direction, '\"');
+
+					TexaLogObject << "Linking room " + room2 + " to room " + room1 + " in direction " + direction;
+
+					if (direction == "NORTH") {
+						getRoom(room1)->setNorth(getRoom(room2));
+					}
+					else if (direction == "SOUTH") {
+						getRoom(room1)->setSouth(getRoom(room2));
+					}
+					else if (direction == "EAST") {
+						getRoom(room1)->setEast(getRoom(room2));
+					}
+					else if (direction == "WEST") {
+						getRoom(room1)->setWest(getRoom(room2));
+					}
+					else if (direction == "UP") {
+						getRoom(room1)->setUp(getRoom(room2));
+					}
+					else if (direction == "DOWN") {
+						getRoom(room1)->setDown(getRoom(room2));
+					}
+					else if (direction == "NORTHEAST") {
+						getRoom(room1)->setNortheast(getRoom(room2));
+					}
+					else if (direction == "NORTHWEST") {
+						getRoom(room1)->setNorthwest(getRoom(room2));
+					}
+					else if (direction == "SOUTHEAST") {
+						getRoom(room1)->setSoutheast(getRoom(room2));
+					}
+					else if (direction == "SOUTHWEST") {
+						getRoom(room1)->setSouthwest(getRoom(room2));
+					}
+					else if (direction == "IN") {
+						getRoom(room1)->setIn(getRoom(room2));
+					}
+					else if (direction == "OUT") {
+						getRoom(room1)->setOut(getRoom(room2));
+					}
+					else {
+						TexaLogObject << "Unknown direction " + direction;
+					}
+				}
+
 				else {
 					TexaLogObject << "Unknown command " + command;
 				}
 			}
+
+
 		}
 
 		void texaMap::addRoom(texaRoom* room) {
