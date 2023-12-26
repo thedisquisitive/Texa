@@ -1,3 +1,4 @@
+# TEXA Map File
 # Set map properties
 SET MAP_NAME "Test Map"
 SET MAP_AUTHOR "Prof"
@@ -82,6 +83,14 @@ ROOM
 	SET ROOM_ID "YARD"
 END_ROOM
 
+# Create links between rooms
+# LINK <ROOM_ID> <ROOM_ID> <DIRECTION>
+# LINK creates a two-way link between two rooms
+
+# LINK_NON_EUCLIDEAN <ROOM_ID> <ROOM_ID> <DIRECTION>
+# LINK_NON_EUCLIDEAN creates a link that is not two-way
+# Thought process is that you start in ROOM1 and go <DIRECTION> to ROOM2
+
 LINK "FOYER" "HALL" "NORTH"
 LINK "HALL" "KITCHEN" "NORTH"
 LINK "KITCHEN" "DINING_ROOM" "NORTH"
@@ -91,9 +100,10 @@ LINK "BEDROOM" "BATHROOM" "NORTH"
 LINK_NON_EUCLIDEAN "FOYER" "FOYER" "SOUTH"
 LINK_NON_EUCLIDEAN "YARD" "FOYER" "NORTH"
 
-
+# Set starting room
 SET START_ROOM "YARD"
 
+# We're done
 END_MAP
 ```
 
